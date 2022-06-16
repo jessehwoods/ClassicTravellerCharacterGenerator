@@ -5,7 +5,7 @@ VisualStudioVersion = 17.2.32526.322
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCharacterGenerator", "ClassicTravellerCharacterGenerator\TravellerCharacterGenerator.csproj", "{E1D7C11F-3C86-4A1D-B3BE-E9F54FF40F99}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{5120AF71-6172-4B25-9430-501F3CD1380A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TravellerCharacterGeneratorTests", "Tests\TravellerCharacterGeneratorTests.csproj", "{5120AF71-6172-4B25-9430-501F3CD1380A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

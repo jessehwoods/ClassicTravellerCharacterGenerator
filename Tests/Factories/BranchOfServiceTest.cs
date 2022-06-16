@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Tests.Factories
+namespace TravellerCharacterGeneratorTests.Factories
 {
     [TestClass]
     public class BranchOfServiceTest

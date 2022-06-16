@@ -1,7 +1,7 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TravellerCharacterGenerator.Products;
 
-namespace Tests.Products
+namespace TravellerCharacterGeneratorTests.Products
 {
     [TestClass]
     public class CharacterTest

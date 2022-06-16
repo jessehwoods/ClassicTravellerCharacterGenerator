@@ -4,7 +4,7 @@ using TravellerCharacterGenerator.Dice;
 using TravellerCharacterGenerator.Factories;
 using TravellerCharacterGenerator.Products;
 
-namespace Test.Factories
+namespace TravellerCharacterGeneratorTest.Factories
 {
     [TestClass]
     public class CharacterRollerTest

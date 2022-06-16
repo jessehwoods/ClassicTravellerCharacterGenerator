@@ -1,6 +1,6 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Tests.Products
+namespace TravellerCharacterGeneratorTests.Products
 {
     [TestClass]
     public class OptionsTest

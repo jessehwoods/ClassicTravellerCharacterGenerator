@@ -2,7 +2,7 @@
 using System;
 using TravellerCharacterGenerator.Dice;
 
-namespace Tests.Dice
+namespace TravellerCharacterGeneratorTests.Dice
 {
     [TestClass, TestCategory("Unit")]
     public class DiceRollerTest
