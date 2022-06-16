@@ -1,14 +1,15 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 
-namespace Tests
+namespace Tests.Manager
 {
     [TestClass]
-    public class UnitTest1
+    public class CharacterCreatorTest
     {
         [TestMethod]
         public void TestMethod1()
         {
+            Assert.Fail();
         }
     }
 }
