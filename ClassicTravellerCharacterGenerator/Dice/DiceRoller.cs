@@ -27,6 +27,7 @@ namespace TravellerCharacterGenerator.Dice
         /// Constructor that will return results as though the dice rolled were always returning the provided number.
         /// </summary>
         /// <param name="result">The number that will be returned by an dice.</param>
+        /// <exception cref="result">ArgumentException if outside of acceptable range for outputs.</exception>
         public DiceRoller(int result)
         {
             if (result < lowerBound || result > upperBound)
@@ -45,6 +46,7 @@ namespace TravellerCharacterGenerator.Dice
         /// </remarks>
         /// <returns>The sum of a number of values from 1-6, results of six-sided dice, equal to <paramref name="numberOfDice" /> </returns>
         /// <param name="numberOfDice">The number of six-sided dice to roll.</param>
+        /// <exception cref="numberOfDice"> ArgumentException if less than 1.</exception>
         public int RollDice(int numberOfDice)
         {
             if (numberOfDice < 1)
