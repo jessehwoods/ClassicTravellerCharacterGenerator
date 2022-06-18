@@ -15,7 +15,7 @@ The character creation process is a series of steps, with a mix of player decisi
 
 The green boxes represent the possible endpoints. Typically these are mustering out, in which case the character is ready to be played, or death, in which case you have to start a new character. There is an optional rule in the rulebook that allows a "dead" result to represent an injury. This will be included in the design as an option to be before character creation is started.
 
-![](https://github.com/jessehwoods/ClassicTravellerCharacterGenerator/blob/master/docs/Diagrams/fsm_diagram_of_character_creation.png)
+![](Docs/Diagrams/fsm_diagram_of_character_creation.png)
 
 After the determination of the Branch of Service by choice or by draft roll, all of the rolls other than aging rolls are made on a Branch of Service specfic table. Whether the character survives, is commissioned, is promoted, the skill advancements obtained, and the mustering out benefits are all based on extremely similar tables for the Branch of Service.
 
@@ -23,7 +23,7 @@ For specifics on how these rolls are made, the relevant tables, etc. I'll refer 
 
 Because there are numerous choices made during character creation, there will need to be a series of "stopping points" in the process where additional input is taken. I have created a separate diagram showing just the choices made, as each of these will need to be a stopping point for the program. In some cases there will be multiple stops on the roll tables, because the player is allowed to roll more than once.
 
-![](https://github.com/jessehwoods/ClassicTravellerCharacterGenerator/blob/master/docs/Diagrams/choices_diagram.png)
+![](Docs/Diagrams/choices_diagram.png)
 
 # Program Structure
 This project will be using the Factory and Strategy design patterns in constructing characters. 
@@ -40,4 +40,4 @@ BranchOfService is an abstract object that will be instatiated by the specific T
 At the moment, this does not have View or Controller components. It is only the model right now. 
 
 # UML Diagram
-![](https://github.com/jessehwoods/ClassicTravellerCharacterGenerator/blob/master/docs/Diagrams/uml_diagram.png)
+![](Docs/Diagrams/uml_diagram.png)
