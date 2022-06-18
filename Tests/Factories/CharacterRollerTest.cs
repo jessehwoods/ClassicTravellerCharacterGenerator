@@ -67,7 +67,7 @@ namespace TravellerCharacterGeneratorTest.Factories
             testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
             try
             {
-                testCharacter.getCareer();
+                testCharacter.GetCareer();
                 Assert.Fail();
             }
             catch (InvalidOperationException)
@@ -84,7 +84,7 @@ namespace TravellerCharacterGeneratorTest.Factories
             testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
             try
             {
-                testCharacter.getRank();
+                testCharacter.GetRank();
                 Assert.Fail();
             }
             catch (InvalidOperationException)
@@ -101,7 +101,7 @@ namespace TravellerCharacterGeneratorTest.Factories
             testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
             try
             {
-                testCharacter.getTerms();
+                testCharacter.GetTerms();
                 Assert.Fail();
             }
             catch (InvalidOperationException)
@@ -118,7 +118,7 @@ namespace TravellerCharacterGeneratorTest.Factories
             testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
             try
             {
-                testCharacter.getSkills();
+                testCharacter.GetSkills();
                 Assert.Fail();
             }
             catch (InvalidOperationException)
@@ -135,7 +135,7 @@ namespace TravellerCharacterGeneratorTest.Factories
             testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
             try
             {
-                testCharacter.getInventory();
+                testCharacter.GetInventory();
                 Assert.Fail();
             }
             catch (InvalidOperationException)

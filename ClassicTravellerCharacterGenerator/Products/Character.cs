@@ -40,32 +40,27 @@ namespace TravellerCharacterGenerator.Products
             throw new NotImplementedException();
         }
 
-        internal int getCash()
+        internal Inventory GetInventory()
         {
             throw new NotImplementedException();
         }
 
-        internal Inventory getInventory()
+        internal Skills GetSkills()
         {
             throw new NotImplementedException();
         }
 
-        internal Skills getSkills()
+        internal int GetTerms()
         {
             throw new NotImplementedException();
         }
 
-        internal int getTerms()
+        internal string GetRank()
         {
             throw new NotImplementedException();
         }
 
-        internal string getRank()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal string getCareer()
+        internal string GetCareer()
         {
             throw new NotImplementedException();
         }
