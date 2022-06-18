@@ -1,5 +1,6 @@
 ﻿
 using System;
+using TravellerCharacterGenerator.Dice;
 using TravellerCharacterGenerator.Products;
 
 namespace TravellerCharacterGenerator.Factories
@@ -8,12 +9,12 @@ namespace TravellerCharacterGenerator.Factories
     {
         private object value;
 
-        public CharacterRoller(object value)
+        public CharacterRoller(DiceRoller diceRoller)
         {
             this.value = value;
         }
 
-        internal Character RollCharacter(string testCharacterName)
+        internal Character RollCharacter(string characterName)
         {
             throw new NotImplementedException();
         }
