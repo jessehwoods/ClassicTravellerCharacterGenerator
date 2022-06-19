@@ -53,6 +53,7 @@
     <Compile Include="Factories\BranchOfServiceTest.cs" />
     <Compile Include="Factories\CharacterRollerTest.cs" />
     <Compile Include="Manager\CharacterCreatorTest.cs" />
+    <Compile Include="Products\AttributesTest.cs" />
     <Compile Include="Products\CharacterTest.cs" />
     <Compile Include="Products\InventoryTest.cs" />
     <Compile Include="Products\OptionsTest.cs" />

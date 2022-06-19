@@ -1,4 +1,5 @@
 ﻿
+using ClassicTravellerCharacterGenerator.Products;
 using System;
 using TravellerCharacterGenerator.Dice;
 using TravellerCharacterGenerator.Products;
@@ -14,7 +15,7 @@ namespace TravellerCharacterGenerator.Factories
             this.value = value;
         }
 
-        internal Character RollCharacter(string characterName)
+        internal Attributes RollCharacter()
         {
             throw new NotImplementedException();
         }

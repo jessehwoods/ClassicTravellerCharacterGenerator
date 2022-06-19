@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ClassicTravellerCharacterGenerator.Products;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TravellerCharacterGenerator.Dice;
 using TravellerCharacterGenerator.Factories;
@@ -11,10 +12,7 @@ namespace TravellerCharacterGeneratorTest.Factories
     {
         private CharacterRoller testCharacterRoller;
         private DiceRoller testDiceRoller;
-        private Character testCharacter;
-
-        private string testCharacterName = "name"; // Name to be used for test character.
-        private int startingAge = 18; // Expected age of a freshly rolled character.
+        private Attributes testAttributes;
 
         [TestMethod]
         public void ArgumentException_From_Constructor_With_Null_DiceRoller()
@@ -38,127 +36,24 @@ namespace TravellerCharacterGeneratorTest.Factories
         }
 
         [TestMethod]
-        public void Generates_Valid_Character_Object_With_Rolled_Characteristics_And_Age_Eighteen()
+        public void Generates_Valid_Attributes_Object_With_Rolled_Characteristics_And_Age_Eighteen()
         {
             for (int i = 1; i <= 6; i++)
             {
                 testDiceRoller = null;
                 testCharacterRoller = null;
-                testCharacter = null;
+                testAttributes = null;
                 testDiceRoller = new DiceRoller(i);
                 testCharacterRoller = new CharacterRoller(testDiceRoller);
-                testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
-                Assert.AreEqual(testCharacterName, testCharacter.GetName());
-                Assert.AreEqual(i * 2, testCharacter.GetStrength() );
-                Assert.AreEqual(i * 2, testCharacter.GetDexterity());
-                Assert.AreEqual(i * 2, testCharacter.GetEndurance());
-                Assert.AreEqual(i * 2, testCharacter.GetIntelligence());
-                Assert.AreEqual(i * 2, testCharacter.GetEducation());
-                Assert.AreEqual(i * 2, testCharacter.GetSocialStanding());
-                Assert.AreEqual(startingAge, testCharacter.GetSocialStanding());
+                testAttributes = testCharacterRoller.RollCharacter();
+                Assert.AreEqual(i * 2, testAttributes.GetStrength() );
+                Assert.AreEqual(i * 2, testAttributes.GetDexterity());
+                Assert.AreEqual(i * 2, testAttributes.GetEndurance());
+                Assert.AreEqual(i * 2, testAttributes.GetIntelligence());
+                Assert.AreEqual(i * 2, testAttributes.GetEducation());
+                Assert.AreEqual(i * 2, testAttributes.GetSocialStanding());
             }
         }
 
-        [TestMethod]
-        public void InvalidOperation_Thrown_By_Getting_Career_From_Rolled_Character()
-        {
-            testDiceRoller = new DiceRoller(1);
-            testCharacterRoller = new CharacterRoller(testDiceRoller);
-            testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
-            try
-            {
-                testCharacter.GetCareer();
-                Assert.Fail();
-            }
-            catch (InvalidOperationException)
-            {
-                Assert.AreEqual(testCharacterName, testCharacter.GetName());
-            }
-        }
-
-        [TestMethod]
-        public void InvalidOperation_Thrown_By_Getting_Rank_From_Rolled_Character()
-        {
-            testDiceRoller = new DiceRoller(1);
-            testCharacterRoller = new CharacterRoller(testDiceRoller);
-            testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
-            try
-            {
-                testCharacter.GetRank();
-                Assert.Fail();
-            }
-            catch (InvalidOperationException)
-            {
-                Assert.AreEqual(testCharacterName, testCharacter.GetName());
-            }
-        }
-
-        [TestMethod]
-        public void InvalidOperation_Thrown_By_Getting_Terms_From_Rolled_Character()
-        {
-            testDiceRoller = new DiceRoller(1);
-            testCharacterRoller = new CharacterRoller(testDiceRoller);
-            testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
-            try
-            {
-                testCharacter.GetTerms();
-                Assert.Fail();
-            }
-            catch (InvalidOperationException)
-            {
-                Assert.AreEqual(testCharacterName, testCharacter.GetName());
-            }
-        }
-
-        [TestMethod]
-        public void InvalidOperation_Thrown_By_Getting_Skills_From_Rolled_Character()
-        {
-            testDiceRoller = new DiceRoller(1);
-            testCharacterRoller = new CharacterRoller(testDiceRoller);
-            testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
-            try
-            {
-                testCharacter.GetSkills();
-                Assert.Fail();
-            }
-            catch (InvalidOperationException)
-            {
-                Assert.AreEqual(testCharacterName, testCharacter.GetName());
-            }
-        }
-
-        [TestMethod]
-        public void InvalidOperation_Thrown_By_Getting_Inventory_From_Rolled_Character()
-        {
-            testDiceRoller = new DiceRoller(1);
-            testCharacterRoller = new CharacterRoller(testDiceRoller);
-            testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
-            try
-            {
-                testCharacter.GetInventory();
-                Assert.Fail();
-            }
-            catch (InvalidOperationException)
-            {
-                Assert.AreEqual(testCharacterName, testCharacter.GetName());
-            }
-        }
-
-        [TestMethod]
-        public void InvalidOperation_Thrown_By_Getting_Cash_From_Rolled_Character()
-        {
-            testDiceRoller = new DiceRoller(1);
-            testCharacterRoller = new CharacterRoller(testDiceRoller);
-            testCharacter = testCharacterRoller.RollCharacter(testCharacterName);
-            try
-            {
-                testCharacter.getCash();
-                Assert.Fail();
-            }
-            catch (InvalidOperationException)
-            {
-                Assert.AreEqual(testCharacterName, testCharacter.GetName());
-            }
-        }
     }
 }
