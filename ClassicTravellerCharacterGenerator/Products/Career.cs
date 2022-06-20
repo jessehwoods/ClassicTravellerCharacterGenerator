@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TravellerCharacterGenerator.Dice;
 
 namespace ClassicTravellerCharacterGenerator.Products
 {
@@ -10,7 +11,7 @@ namespace ClassicTravellerCharacterGenerator.Products
     {
         private int age;
         private int terms;
-
+        private DiceRoller testDiceRoller;
         private readonly int startingAge = 18;
         private readonly int startingTerms = 0;
 
@@ -19,6 +20,12 @@ namespace ClassicTravellerCharacterGenerator.Products
             age = startingAge;
             terms = startingTerms;
         }
+
+        public Career(DiceRoller testDiceRoller)
+        {
+            this.testDiceRoller = testDiceRoller;
+        }
+
         internal int GetAge()
         {
             throw new NotImplementedException();
@@ -29,14 +36,15 @@ namespace ClassicTravellerCharacterGenerator.Products
             throw new NotImplementedException();
         }
 
+        internal void AddHalfTerm()
+        {
+            throw new NotImplementedException();
+        }
+
         internal void AddTerm()
         {
             throw new NotImplementedException();
         }
 
-        internal void AddHalfTerm()
-        {
-            throw new NotImplementedException();
-        }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using ClassicTravellerCharacterGenerator.Products;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using TravellerCharacterGenerator.Dice;
 
 namespace TravellerCharacterGeneratorTests.Products
@@ -13,9 +14,10 @@ namespace TravellerCharacterGeneratorTests.Products
         [TestMethod]
         public void New_Career_Should_Start_At_18_Age_And_0_Terms()
         {
+            // Basic constructor
             testCareer = new Career();
             Assert.AreEqual(18, testCareer.GetAge());
-            Assert.AreEqual(0, testCareer.GetTerms());
+            Assert.AreEqual(0, testCareer.GetTerms()););
         }
 
         [TestMethod]
@@ -25,6 +27,15 @@ namespace TravellerCharacterGeneratorTests.Products
             testCareer.AddTerm();
             Assert.AreEqual(22, testCareer.GetAge());
             Assert.AreEqual(1, testCareer.GetTerms());
+            testCareer.AddTerm();
+            Assert.AreEqual(26, testCareer.GetAge());
+            Assert.AreEqual(2, testCareer.GetTerms());
+            testCareer.AddTerm();
+            Assert.AreEqual(30, testCareer.GetAge());
+            Assert.AreEqual(3, testCareer.GetTerms());
+            testCareer.AddTerm();
+            Assert.AreEqual(34, testCareer.GetAge());
+            Assert.AreEqual(4, testCareer.GetTerms());
         }
 
         [TestMethod]
@@ -35,6 +46,5 @@ namespace TravellerCharacterGeneratorTests.Products
             Assert.AreEqual(20, testCareer.GetAge());
             Assert.AreEqual(0, testCareer.GetTerms());
         }
-
     }
 }

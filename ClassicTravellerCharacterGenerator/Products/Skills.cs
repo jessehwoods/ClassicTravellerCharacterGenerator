@@ -15,5 +15,10 @@ namespace TravellerCharacterGenerator.Products
         {
             throw new NotImplementedException();
         }
+
+        internal void AddSkill(string secondSkill)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
