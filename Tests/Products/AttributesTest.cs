@@ -1,4 +1,5 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using ClassicTravellerCharacterGenerator.Products;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using TravellerCharacterGenerator.Products;
 
@@ -8,7 +9,7 @@ namespace TravellerCharacterGeneratorTests.Products
     [TestClass]
     public class AttributesTest
     {
-
+        private Attributes testAttributes;
         private readonly int testValidAttributes = 7;
         private readonly int testInvalidAttributes = -1;
 
@@ -16,10 +17,10 @@ namespace TravellerCharacterGeneratorTests.Products
         public void ArgumentException_Should_Be_Thrown_By_Negative_Integer_Inputs_For_Attributes()
         {
             // first attribute is invalid
-            testCharacter = null;
+            testAttributes = null;
             try
             {
-                testCharacter = new Character(testCharacterName, 
+                testAttributes = new Attributes( 
                     testInvalidAttributes, 
                     testValidAttributes, 
                     testValidAttributes, 
@@ -29,13 +30,13 @@ namespace TravellerCharacterGeneratorTests.Products
                 Assert.Fail();
             } catch (ArgumentException)
             {
-                Assert.IsNull(testCharacter);
+                Assert.IsNull(testAttributes);
             }
-            testCharacter = null;
+            testAttributes = null;
             // second attribute is invalid
             try
             {
-                testCharacter = new Character(testCharacterName, 
+                testAttributes = new Attributes( 
                     testValidAttributes, 
                     testInvalidAttributes, 
                     testValidAttributes, 
@@ -46,12 +47,12 @@ namespace TravellerCharacterGeneratorTests.Products
             }
             catch (ArgumentException)
             {
-                Assert.IsNull(testCharacter);
+                Assert.IsNull(testAttributes);
             }
             // third attribute is invalid
             try
             {
-                testCharacter = new Character(testCharacterName, 
+                testAttributes = new Attributes( 
                     testValidAttributes, 
                     testValidAttributes, 
                     testInvalidAttributes, 
@@ -62,12 +63,12 @@ namespace TravellerCharacterGeneratorTests.Products
             }
             catch (ArgumentException)
             {
-                Assert.IsNull(testCharacter);
+                Assert.IsNull(testAttributes);
             }
             // fourth attribute is invalid
             try
             {
-                testCharacter = new Character(testCharacterName, 
+                testAttributes = new Attributes( 
                     testValidAttributes, 
                     testValidAttributes, 
                     testValidAttributes, 
@@ -78,12 +79,12 @@ namespace TravellerCharacterGeneratorTests.Products
             }
             catch (ArgumentException)
             {
-                Assert.IsNull(testCharacter);
+                Assert.IsNull(testAttributes);
             }
             // fifth attribute is invalid
             try
             {
-                testCharacter = new Character(testCharacterName, 
+                testAttributes = new Attributes( 
                     testValidAttributes, 
                     testValidAttributes, 
                     testValidAttributes, 
@@ -94,139 +95,40 @@ namespace TravellerCharacterGeneratorTests.Products
             }
             catch (ArgumentException)
             {
-                Assert.IsNull(testCharacter);
+                Assert.IsNull(testAttributes);
             }
             // sixth attribute is invalid
             try
             {
-                testCharacter = new Character(testCharacterName, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testInvalidAttributes);
+                testAttributes = new Attributes(
+                    testValidAttributes, 
+                    testValidAttributes, 
+                    testValidAttributes, 
+                    testValidAttributes, 
+                    testValidAttributes, 
+                    testInvalidAttributes);
                 Assert.Fail();
             }
             catch (ArgumentException)
             {
-                Assert.IsNull(testCharacter);
+                Assert.IsNull(testAttributes);
             }
         }
 
         [TestMethod]
         public void No_ArgumentException_Should_Be_Thrown_By_Nonnegative_Integer_Inputs_For_Attributes()
         {
-            testCharacter = null;
-            testCharacter = new Character(testCharacterName, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes);
-            Assert.IsNotNull(testCharacter);
-            Assert.AreEqual(testCharacterName, testCharacter.GetName());
+            testAttributes = null;
+            testAttributes = new Attributes(testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes);
+            Assert.IsNotNull(testAttributes);
             //Check attributes
-            Assert.AreEqual(testValidAttributes, testCharacter.GetStrength());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetEndurance());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetDexterity());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetIntelligence());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetEducation());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetSocialStanding());
-            // Check that skills and inventory exist
-            Assert.IsNotNull(testCharacter.GetInventory());
-            Assert.IsNotNull(testCharacter.GetSkills());
-        }
+            Assert.AreEqual(testValidAttributes, testAttributes.GetStrength());
+            Assert.AreEqual(testValidAttributes, testAttributes.GetEndurance());
+            Assert.AreEqual(testValidAttributes, testAttributes.GetDexterity());
+            Assert.AreEqual(testValidAttributes, testAttributes.GetIntelligence());
+            Assert.AreEqual(testValidAttributes, testAttributes.GetEducation());
+            Assert.AreEqual(testValidAttributes, testAttributes.GetSocialStanding());
 
-        [TestMethod]
-        public void ArgumentException_Should_Be_Thrown_By_Null_Inventory_Input()
-        {
-            testCharacter = null;
-            try
-            {
-                testCharacter = new Character(testCharacterName, 
-                    testValidAttributes, 
-                    testValidAttributes, 
-                    testValidAttributes, 
-                    testValidAttributes, 
-                    testValidAttributes, 
-                    testValidAttributes,
-                    new EmptySkills(),
-                    null,
-                    testLowestValidCash
-                    );
-                Assert.Fail();
-            }
-            catch (ArgumentException)
-            {
-                Assert.IsNull(testCharacter);
-            }
-        }
-
-        [TestMethod]
-        public void ArgumentException_Should_Be_Thrown_By_Null_Skills_Input()
-        {
-            testCharacter = null;
-            try
-            {
-                testCharacter = new Character(testCharacterName,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    null,
-                    new EmptyInventory(),
-                    testLowestValidCash
-                    );
-                Assert.Fail();
-            }
-            catch (ArgumentException)
-            {
-                Assert.IsNull(testCharacter);
-            }
-        }
-
-        [TestMethod]
-        public void ArgumentException_Should_Be_Thrown_By_Negative_Integer_Input_For_Cash()
-        {
-            testCharacter = null;
-            try
-            {
-                testCharacter = new Character(testCharacterName,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    new EmptySkills(),
-                    new EmptyInventory(),
-                    testInvalidAttributes
-                    );
-                Assert.Fail();
-            }
-            catch (ArgumentException)
-            {
-                Assert.IsNull(testCharacter);
-            }
-        }
-
-        [TestMethod]
-        public void Valid_Construction_Should_Return_All_Input_Objects()
-        {
-            EmptySkills testSkills = new EmptySkills;
-            EmptyInventory testInventory = new EmptyInventory;
-            testCharacter = new Character(testCharacterName,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    new EmptySkills(),
-                    new EmptyInventory(),
-                    testLowestValidCash
-                    );
-            Assert.AreEqual(testValidAttributes, testCharacter.GetStrength());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetEndurance());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetDexterity());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetIntelligence());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetEducation());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetSocialStanding());
-            Assert.AreEqual(testSkills, testCharacter.GetSkills());
-            Assert.AreEqual(testInventory, testCharacter.GetInventory());
-            Assert.AreEqual(testLowestValidCash, testCharacter.GetCash());
         }
     }
 }

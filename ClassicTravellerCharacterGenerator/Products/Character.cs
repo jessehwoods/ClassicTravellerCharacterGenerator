@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClassicTravellerCharacterGenerator.Products;
+using System;
 
 namespace TravellerCharacterGenerator.Products
 {
@@ -6,43 +7,21 @@ namespace TravellerCharacterGenerator.Products
     internal class Character
     {
         private string name;
-        private int strength;
-        private int dexterity;
-        private int endurance;
-        private int intelligence;
-        private int education;
-        private int socialStanding;
+        private Attributes attributes;
+        private Career career;
         private Skills skills;
         private Inventory inventory;
 
         public Character(string name, 
-            int strength, 
-            int dexterity, 
-            int endurance, 
-            int intelligence, 
-            int education, 
-            int socialStanding)
-        {
-            this(strength, dexterity, endurance, intelligence, endurance, intelligence, education, socialStanding, new Skills(), new Inventory());
-        }
-
-        public Character(string name, 
-            int strength, 
-            int dexterity, 
-            int endurance, 
-            int intelligence, 
-            int education, 
-            int socialStanding, 
+            int age, 
+            Attributes attributes,
+            Career career,
             Skills skills, 
             Inventory inventory)
         {
             this.name = name;
-            this.strength = strength;
-            this.dexterity = dexterity;
-            this.endurance = endurance;
-            this.intelligence = intelligence;
-            this.education = education;
-            this.socialStanding = socialStanding;
+            this.attributes = attributes;
+            this.career = career;
             this.skills = skills;
             this.inventory = inventory;
         }
