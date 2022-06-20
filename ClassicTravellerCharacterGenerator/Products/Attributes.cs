@@ -8,51 +8,26 @@ namespace ClassicTravellerCharacterGenerator.Products
 {
     internal class Attributes
     {
-        private int testInvalidAttributes;
-        private int testValidAttributes1;
-        private int testValidAttributes2;
-        private int testValidAttributes3;
-        private int testValidAttributes4;
-        private int testValidAttributes5;
+        public int Strength { get; }
+        public int Dexterity { get; }
+        public int Endurance { get; }
+        public int Intelligence { get; }
+        public int Education { get; }
+        public int SocialStanding { get; }
 
-        public Attributes(int testInvalidAttributes, int testValidAttributes1, int testValidAttributes2, int testValidAttributes3, int testValidAttributes4, int testValidAttributes5)
-        {
-            this.testInvalidAttributes = testInvalidAttributes;
-            this.testValidAttributes1 = testValidAttributes1;
-            this.testValidAttributes2 = testValidAttributes2;
-            this.testValidAttributes3 = testValidAttributes3;
-            this.testValidAttributes4 = testValidAttributes4;
-            this.testValidAttributes5 = testValidAttributes5;
-        }
 
-        internal int GetStrength()
+        public Attributes(int strength, int dexterity, int endurance, int intelligence, int education, int socialStanding)
         {
-            throw new NotImplementedException();
-        }
-
-        internal int GetDexterity()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal int GetEndurance()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal int GetIntelligence()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal int GetEducation()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal int GetSocialStanding()
-        {
-            throw new NotImplementedException();
+            if(strength < 0 || dexterity < 0 || endurance < 0 || intelligence < 0 || education < 0 || socialStanding < 0)
+            {
+                throw new ArgumentOutOfRangeException("No attribute can be less than 0.");
+            }
+            this.Strength = strength;
+            this.Dexterity = dexterity;
+            this.Endurance = endurance;
+            this.Intelligence = intelligence;
+            this.Education = education;
+            this.SocialStanding = socialStanding;
         }
     }
 }

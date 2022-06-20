@@ -14,7 +14,7 @@ namespace TravellerCharacterGeneratorTests.Products
         private readonly int testInvalidAttributes = -1;
 
         [TestMethod]
-        public void ArgumentException_Should_Be_Thrown_By_Negative_Integer_Inputs_For_Attributes()
+        public void ArgumentOutOfRangeException_Should_Be_Thrown_By_Negative_Integer_Inputs_For_Attributes()
         {
             // first attribute is invalid
             testAttributes = null;
@@ -28,7 +28,7 @@ namespace TravellerCharacterGeneratorTests.Products
                     testValidAttributes, 
                     testValidAttributes);
                 Assert.Fail();
-            } catch (ArgumentException)
+            } catch (ArgumentOutOfRangeException)
             {
                 Assert.IsNull(testAttributes);
             }
@@ -45,7 +45,7 @@ namespace TravellerCharacterGeneratorTests.Products
                     testValidAttributes);
                 Assert.Fail();
             }
-            catch (ArgumentException)
+            catch (ArgumentOutOfRangeException)
             {
                 Assert.IsNull(testAttributes);
             }
@@ -61,7 +61,7 @@ namespace TravellerCharacterGeneratorTests.Products
                     testValidAttributes);
                 Assert.Fail();
             }
-            catch (ArgumentException)
+            catch (ArgumentOutOfRangeException)
             {
                 Assert.IsNull(testAttributes);
             }
@@ -77,7 +77,7 @@ namespace TravellerCharacterGeneratorTests.Products
                     testValidAttributes);
                 Assert.Fail();
             }
-            catch (ArgumentException)
+            catch (ArgumentOutOfRangeException)
             {
                 Assert.IsNull(testAttributes);
             }
@@ -93,7 +93,7 @@ namespace TravellerCharacterGeneratorTests.Products
                     testValidAttributes);
                 Assert.Fail();
             }
-            catch (ArgumentException)
+            catch (ArgumentOutOfRangeException)
             {
                 Assert.IsNull(testAttributes);
             }
@@ -109,26 +109,25 @@ namespace TravellerCharacterGeneratorTests.Products
                     testInvalidAttributes);
                 Assert.Fail();
             }
-            catch (ArgumentException)
+            catch (ArgumentOutOfRangeException)
             {
                 Assert.IsNull(testAttributes);
             }
         }
 
         [TestMethod]
-        public void No_ArgumentException_Should_Be_Thrown_By_Nonnegative_Integer_Inputs_For_Attributes()
+        public void No_ArgumentOutOfRangeException_Should_Be_Thrown_By_Nonnegative_Integer_Inputs_For_Attributes()
         {
             testAttributes = null;
             testAttributes = new Attributes(testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes);
             Assert.IsNotNull(testAttributes);
             //Check attributes
-            Assert.AreEqual(testValidAttributes, testAttributes.GetStrength());
-            Assert.AreEqual(testValidAttributes, testAttributes.GetEndurance());
-            Assert.AreEqual(testValidAttributes, testAttributes.GetDexterity());
-            Assert.AreEqual(testValidAttributes, testAttributes.GetIntelligence());
-            Assert.AreEqual(testValidAttributes, testAttributes.GetEducation());
-            Assert.AreEqual(testValidAttributes, testAttributes.GetSocialStanding());
-
+            Assert.AreEqual(testValidAttributes, testAttributes.Strength);
+            Assert.AreEqual(testValidAttributes, testAttributes.Endurance);
+            Assert.AreEqual(testValidAttributes, testAttributes.Dexterity);
+            Assert.AreEqual(testValidAttributes, testAttributes.Intelligence);
+            Assert.AreEqual(testValidAttributes, testAttributes.Education);
+            Assert.AreEqual(testValidAttributes, testAttributes.SocialStanding);
         }
     }
 }

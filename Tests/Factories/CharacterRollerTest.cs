@@ -46,12 +46,12 @@ namespace TravellerCharacterGeneratorTest.Factories
                 testDiceRoller = new DiceRoller(i);
                 testCharacterRoller = new CharacterRoller(testDiceRoller);
                 testAttributes = testCharacterRoller.RollCharacter();
-                Assert.AreEqual(i * 2, testAttributes.GetStrength() );
-                Assert.AreEqual(i * 2, testAttributes.GetDexterity());
-                Assert.AreEqual(i * 2, testAttributes.GetEndurance());
-                Assert.AreEqual(i * 2, testAttributes.GetIntelligence());
-                Assert.AreEqual(i * 2, testAttributes.GetEducation());
-                Assert.AreEqual(i * 2, testAttributes.GetSocialStanding());
+                Assert.AreEqual(i * 2, testAttributes.Strength );
+                Assert.AreEqual(i * 2, testAttributes.Dexterity);
+                Assert.AreEqual(i * 2, testAttributes.Endurance);
+                Assert.AreEqual(i * 2, testAttributes.Intelligence);
+                Assert.AreEqual(i * 2, testAttributes.Education);
+                Assert.AreEqual(i * 2, testAttributes.SocialStanding);
             }
         }
 
