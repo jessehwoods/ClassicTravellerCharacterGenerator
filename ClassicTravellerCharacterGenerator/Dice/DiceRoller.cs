@@ -26,8 +26,8 @@ namespace TravellerCharacterGenerator.Dice
         /// <summary>
         /// Constructor that will return results as though the dice rolled were always returning the provided number.
         /// </summary>
-        /// <param name="result">The number that will be returned by an dice.</param>
-        /// <exception cref="result">ArgumentException if outside of acceptable range for outputs.</exception>
+        /// <param name="result">The number that will be returned by any dice.</param>
+        /// <exception cref="result"> ArgumentException if outside of acceptable range for outputs.</exception>
         public DiceRoller(int result)
         {
             if (result < lowerBound || result > upperBound)

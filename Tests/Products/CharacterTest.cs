@@ -66,25 +66,6 @@ namespace TravellerCharacterGeneratorTests.Products
         }
 
         [TestMethod]
-        public void No_ArgumentException_Should_Be_Thrown_By_Nonnegative_Integer_Inputs_For_Attributes()
-        {
-            testCharacter = null;
-            testCharacter = new Character(testCharacterName, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes);
-            Assert.IsNotNull(testCharacter);
-            Assert.AreEqual(testCharacterName, testCharacter.GetName());
-            //Check attributes
-            Assert.AreEqual(testValidAttributes, testCharacter.GetStrength());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetEndurance());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetDexterity());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetIntelligence());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetEducation());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetSocialStanding());
-            // Check that skills and inventory exist
-            Assert.IsNotNull(testCharacter.GetInventory());
-            Assert.IsNotNull(testCharacter.GetSkills());
-        }
-
-        [TestMethod]
         public void ArgumentException_Should_Be_Thrown_By_Null_Inventory_Input()
         {
             testCharacter = null;

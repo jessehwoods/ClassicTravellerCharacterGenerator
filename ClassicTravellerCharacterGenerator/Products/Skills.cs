@@ -10,5 +10,10 @@ namespace TravellerCharacterGenerator.Products
         {
             throw new NotImplementedException();
         }
+
+        internal void AddZeroSkill(string firstSkill)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
