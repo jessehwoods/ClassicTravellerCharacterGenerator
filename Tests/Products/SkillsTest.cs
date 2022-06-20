@@ -15,7 +15,7 @@ namespace TravellerCharacterGeneratorTests.Products
         public void New_Skills_Should_Start_Empty()
         {
             testSkills = new Skills();
-            Assert.AreEqual(0, testSkills.NumberOfSkills());
+            Assert.AreEqual(0, testSkills.NumberOfSkills);
         }
 
         [TestMethod]
@@ -23,7 +23,7 @@ namespace TravellerCharacterGeneratorTests.Products
         {
             testSkills = new Skills();
             testSkills.AddZeroSkill(firstSkill);
-            Assert.AreEqual(1, testSkills.NumberOfSkills());
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
             Assert.AreEqual( firstSkill + "-0", testSkills.ToString());
         }
 
@@ -32,6 +32,7 @@ namespace TravellerCharacterGeneratorTests.Products
         {
             testSkills = new Skills();
             testSkills.AddZeroSkill(firstSkill);
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
             try
             {
                 testSkills.AddZeroSkill(firstSkill);
@@ -39,10 +40,12 @@ namespace TravellerCharacterGeneratorTests.Products
             } catch (ArgumentException)
             {
                 Assert.AreEqual(firstSkill + "-0", testSkills.ToString());
+                Assert.AreEqual(1, testSkills.NumberOfSkills);
             }
 
             testSkills = new Skills();
             testSkills.AddSkill(firstSkill);
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
             try
             {
                 testSkills.AddZeroSkill(firstSkill);
@@ -51,7 +54,8 @@ namespace TravellerCharacterGeneratorTests.Products
             catch (ArgumentException)
             {
                 Assert.AreEqual(firstSkill + "-1", testSkills.ToString());
-            }
+                Assert.AreEqual(1, testSkills.NumberOfSkills);
+            } 
         }
 
         [TestMethod]
@@ -60,6 +64,7 @@ namespace TravellerCharacterGeneratorTests.Products
             testSkills = new Skills();
             testSkills.AddSkill(firstSkill);
             Assert.AreEqual(firstSkill + "-1", testSkills.ToString());
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
         }
 
         [TestMethod]
@@ -68,8 +73,10 @@ namespace TravellerCharacterGeneratorTests.Products
             testSkills = new Skills();
             testSkills.AddZeroSkill(firstSkill);
             Assert.AreEqual(firstSkill + "-0", testSkills.ToString());
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
             testSkills.AddSkill(firstSkill);
             Assert.AreEqual(firstSkill + "-1", testSkills.ToString());
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
         }
 
         [TestMethod]
@@ -78,12 +85,16 @@ namespace TravellerCharacterGeneratorTests.Products
             testSkills = new Skills();
             testSkills.AddSkill(firstSkill);
             Assert.AreEqual(firstSkill + "-1", testSkills.ToString());
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
             testSkills.AddSkill(firstSkill);
             Assert.AreEqual(firstSkill + "-2", testSkills.ToString());
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
             testSkills.AddSkill(firstSkill);
             Assert.AreEqual(firstSkill + "-3", testSkills.ToString());
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
             testSkills.AddSkill(firstSkill);
             Assert.AreEqual(firstSkill + "-4", testSkills.ToString());
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
         }
 
         [TestMethod]
@@ -91,10 +102,13 @@ namespace TravellerCharacterGeneratorTests.Products
         {
             testSkills = new Skills();
             testSkills.AddSkill(firstSkill);
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
             testSkills.AddSkill(secondSkill);
             Assert.AreEqual(firstSkill + "-1, " + secondSkill + "-1", testSkills.ToString());
+            Assert.AreEqual(2, testSkills.NumberOfSkills);
             testSkills.AddSkill(firstSkill);
             Assert.AreEqual(firstSkill + "-2, " + secondSkill + "-1", testSkills.ToString());
+            Assert.AreEqual(2, testSkills.NumberOfSkills);
         }
 
         [TestMethod]
@@ -102,10 +116,13 @@ namespace TravellerCharacterGeneratorTests.Products
         {
             testSkills = new Skills();
             testSkills.AddZeroSkill(firstSkill);
+            Assert.AreEqual(1, testSkills.NumberOfSkills);
             testSkills.AddZeroSkill(secondSkill);
             Assert.AreEqual(firstSkill + "-0, " + secondSkill + "-0", testSkills.ToString());
+            Assert.AreEqual(2, testSkills.NumberOfSkills);
             testSkills.AddSkill(firstSkill);
             Assert.AreEqual(firstSkill + "-1, " + secondSkill + "-0", testSkills.ToString());
+            Assert.AreEqual(2, testSkills.NumberOfSkills);
         }
 
     }
