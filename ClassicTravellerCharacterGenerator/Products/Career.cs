@@ -11,7 +11,7 @@ namespace ClassicTravellerCharacterGenerator.Products
     {
         private int age;
         private int terms;
-        private DiceRoller testDiceRoller;
+
         private readonly int startingAge = 18;
         private readonly int startingTerms = 0;
 
@@ -21,29 +21,25 @@ namespace ClassicTravellerCharacterGenerator.Products
             terms = startingTerms;
         }
 
-        public Career(DiceRoller testDiceRoller)
-        {
-            this.testDiceRoller = testDiceRoller;
-        }
-
         internal int GetAge()
         {
-            throw new NotImplementedException();
+            return age;
         }
 
         internal int GetTerms()
         {
-            throw new NotImplementedException();
+            return terms;
         }
 
         internal void AddHalfTerm()
         {
-            throw new NotImplementedException();
+            age += 2;
         }
 
         internal void AddTerm()
         {
-            throw new NotImplementedException();
+            age += 4;
+            terms++;
         }
 
     }
