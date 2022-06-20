@@ -43,6 +43,7 @@
     <Compile Include="Dice\DiceRoller.cs" />
     <Compile Include="Factories\BranchOfService.cs" />
     <Compile Include="Factories\CharacterRoller.cs" />
+    <Compile Include="Factories\Ager.cs" />
     <Compile Include="Manager\CharacterCreator.cs" />
     <Compile Include="Products\Character.cs" />
     <Compile Include="Products\Attributes.cs" />

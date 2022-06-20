@@ -52,91 +52,25 @@ namespace TravellerCharacterGeneratorTests.Products
         [TestMethod]
         public void ArgumentException_Should_Be_Thrown_By_Null_Input_For_Attributes()
         {
-            // first attribute is invalid
-            testAttributes = null;
-            try
-            {
-                testCharacter = new Character(testCharacterName, 
-                    testAttributes);
-                Assert.Fail();
-            } catch (ArgumentException)
-            {
-                Assert.IsNull(testCharacter);
-            }
+
         }
 
         [TestMethod]
         public void ArgumentException_Should_Be_Thrown_By_Null_Inventory_Input()
         {
-            testCharacter = null;
-            try
-            {
-                testCharacter = new Character(testCharacterName, 
-                    testValidAttributes, 
-                    testValidAttributes, 
-                    testValidAttributes, 
-                    testValidAttributes, 
-                    testValidAttributes, 
-                    testValidAttributes,
-                    new EmptySkills(),
-                    null,
-                    testLowestValidCash
-                    );
-                Assert.Fail();
-            }
-            catch (ArgumentException)
-            {
-                Assert.IsNull(testCharacter);
-            }
+
         }
 
         [TestMethod]
         public void ArgumentException_Should_Be_Thrown_By_Null_Skills_Input()
         {
-            testCharacter = null;
-            try
-            {
-                testCharacter = new Character(testCharacterName,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    null,
-                    new EmptyInventory(),
-                    testLowestValidCash
-                    );
-                Assert.Fail();
-            }
-            catch (ArgumentException)
-            {
-                Assert.IsNull(testCharacter);
-            }
+
         }
 
         [TestMethod]
         public void Valid_Construction_Should_Return_All_Input_Objects()
         {
-            testCharacter = new Character(testCharacterName,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    testValidAttributes,
-                    new EmptySkills(),
-                    new EmptyInventory()
-                    );
-            Assert.AreEqual(testValidAttributes, testCharacter.GetStrength());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetEndurance());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetDexterity());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetIntelligence());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetEducation());
-            Assert.AreEqual(testValidAttributes, testCharacter.GetSocialStanding());
-            Assert.AreEqual(testEmptyStringArray, testCharacter.GetSkills());
-            Assert.AreEqual(testEmptyStringArray, testCharacter.GetInventory());
-            Assert.AreEqual(testLowestValidCash, testCharacter.GetCash());
+
         }
     }
 }

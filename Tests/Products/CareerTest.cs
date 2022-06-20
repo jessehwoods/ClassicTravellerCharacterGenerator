@@ -17,7 +17,7 @@ namespace TravellerCharacterGeneratorTests.Products
             // Basic constructor
             testCareer = new Career();
             Assert.AreEqual(18, testCareer.GetAge());
-            Assert.AreEqual(0, testCareer.GetTerms()););
+            Assert.AreEqual(0, testCareer.GetTerms());
         }
 
         [TestMethod]

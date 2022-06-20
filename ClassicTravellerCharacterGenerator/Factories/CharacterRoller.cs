@@ -8,11 +8,11 @@ namespace TravellerCharacterGenerator.Factories
 {
     internal class CharacterRoller
     {
-        private object value;
+        private DiceRoller diceRoller;
 
         public CharacterRoller(DiceRoller diceRoller)
         {
-            this.value = value;
+            this.diceRoller = diceRoller;
         }
 
         internal Attributes RollCharacter()

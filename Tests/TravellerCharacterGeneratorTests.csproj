@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dice\DiceRollerTest.cs" />
+    <Compile Include="Factories\AgerTest.cs" />
     <Compile Include="Factories\BranchOfServiceTest.cs" />
     <Compile Include="Factories\CharacterRollerTest.cs" />
     <Compile Include="Manager\CharacterCreatorTest.cs" />
