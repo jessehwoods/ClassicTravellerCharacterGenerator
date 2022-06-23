@@ -4,6 +4,11 @@ using System;
 namespace TravellerCharacterGenerator.Products
 {
 
+    /// <summary>
+    /// This is a container class to represent the overall character. 
+    /// </summary>
+    /// <remarks>
+    ///  This is used to hold the character information at the end of character creation. It is currently intended only to be used as an accessor.
     internal class Character
     {
         private string name;
@@ -12,13 +17,45 @@ namespace TravellerCharacterGenerator.Products
         private Skills skills;
         private Inventory inventory;
 
+        /// <summary>
+        /// Constructs a character with the input values. 
+        /// </summary>
+        /// <param name="name">The name of the character. First and last are not distinguished.</param>
+        /// <param name="attributes">The name of the character. First and last are not distinguished.</param>
+        /// <param name="career">The name of the character. First and last are not distinguished.</param>
+        /// <param name="skills">The name of the character. First and last are not distinguished.</param>
+        /// <param name="inventory">The name of the character. First and last are not distinguished.</param>
+        /// <exception cref="name"> ArgumentNullException.</exception>
+        /// <exception cref="attributes"> ArgumentNullException.</exception>
+        /// <exception cref="career"> ArgumentNullException.</exception>
+        /// <exception cref="skills"> ArgumentNullException.</exception>
+        /// <exception cref="inventory"> ArgumentNullException.</exception>
         public Character(string name, 
-            int age, 
             Attributes attributes,
             Career career,
             Skills skills, 
             Inventory inventory)
         {
+            if (name == null || name.Length == 0)
+            {
+                throw new ArgumentNullException("name");
+            }
+            if (attributes == null)
+            {
+                throw new ArgumentNullException("attributes");
+            }
+            if (career == null)
+            {
+                throw new ArgumentNullException("career");
+            }
+            if (skills == null)
+            {
+                throw new ArgumentNullException("skills");
+            }
+            if (inventory == null)
+            {
+                throw new ArgumentNullException("inventory");
+            }
             this.name = name;
             this.attributes = attributes;
             this.career = career;
@@ -28,45 +65,45 @@ namespace TravellerCharacterGenerator.Products
 
         internal string GetName()
         {
-            throw new NotImplementedException();
+            return name;
         }
 
         internal int GetStrength()
         {
-            throw new NotImplementedException();
+            return attributes.Strength;
         }
 
         internal int GetDexterity()
         {
-            throw new NotImplementedException();
+            return attributes.Dexterity;
         }
 
         internal int GetEndurance()
         {
-            throw new NotImplementedException();
+            return attributes.Endurance;
         }
 
         internal int GetIntelligence()
         {
-            throw new NotImplementedException();
+            return attributes.Intelligence;
         }
 
         internal int GetEducation()
         {
-            throw new NotImplementedException();
+            return attributes.Education;
         }
 
         internal int GetSocialStanding()
         {
-            throw new NotImplementedException();
+            return attributes.SocialStanding;
         }
 
-        internal Inventory GetInventory()
+        internal string[] GetInventory()
         {
-            throw new NotImplementedException();
+            return inventory.ItemArray;
         }
 
-        internal Skills GetSkills()
+        internal string[] GetSkills()
         {
             throw new NotImplementedException();
         }

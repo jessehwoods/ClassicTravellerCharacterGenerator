@@ -58,7 +58,7 @@
     <Compile Include="Products\AttributesTest.cs" />
     <Compile Include="Products\CharacterTest.cs" />
     <Compile Include="Products\InventoryTest.cs" />
-    <Compile Include="Products\OptionsTest.cs" />
+    <Compile Include="Manager\OptionsTest.cs" />
     <Compile Include="Products\SkillsTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

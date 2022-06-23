@@ -6,14 +6,22 @@ using System.Threading.Tasks;
 
 namespace ClassicTravellerCharacterGenerator.Products
 {
+    /// <summary>
+    /// Contains the six attributes that define a character in Traveller.
+    /// </summary>
+    /// <remarks>
+    /// Attribute values typically range from 1-15. An attribute of 0 or less generally means that the character is dead. Attributes over 15 should be
+    /// hypothetically possible, but the system for representing them, the pseudo-hexadecimal notation described on p. 8 of the first Traveller book, has
+    /// a maximum value of 15.
+    /// </remarks>
     internal class Attributes
     {
-        public int Strength { get; }
-        public int Dexterity { get; }
-        public int Endurance { get; }
-        public int Intelligence { get; }
-        public int Education { get; }
-        public int SocialStanding { get; }
+        public int Strength { get; private set; }
+        public int Dexterity { get; private set; }
+        public int Endurance { get; private set; }
+        public int Intelligence { get; private set; }
+        public int Education { get; private set; }
+        public int SocialStanding { get; private set; }
 
 
         public Attributes(int strength, int dexterity, int endurance, int intelligence, int education, int socialStanding)

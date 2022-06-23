@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace TravellerCharacterGenerator.Products
@@ -11,6 +12,7 @@ namespace TravellerCharacterGenerator.Products
         private SortedDictionary<string, int> skillsDictionary;
 
         public int NumberOfSkills { get { return skillsDictionary.Count; } }
+        public Tuple<string, int>[] SkillsArray { get { return getArrayFromDictionary(); } }
 
         public Skills()
         {
@@ -28,10 +30,10 @@ namespace TravellerCharacterGenerator.Products
 
         internal void AddSkill(string skill)
         {
-            if (skillsDictionary.TryGetValue(skill, out int skillvalue) )
+            if (skillsDictionary.TryGetValue(skill, out int skillvalue))
             {
                 skillsDictionary[skill] = skillvalue + 1;
-            } 
+            }
             else
             {
                 skillsDictionary.Add(skill, 1);
@@ -45,8 +47,16 @@ namespace TravellerCharacterGenerator.Products
             {
                 sb.AppendFormat("{0}-{1}, ", x.Key, x.Value);
             }
-            sb.Length = sb.Length - 2;
+            sb.Length = sb.Length - 2; // Cuts of the last ", "
             return sb.ToString();
+        }
+
+        private string[] getArrayFromDictionary()
+        {
+            var toReturn = skillsDictionary.Select(s => new { String.Format("{0}-{1}", s.Key, s.Value) });
+
+
+            return toReturn;
         }
     }
 }

@@ -49,7 +49,7 @@
     <Compile Include="Products\Attributes.cs" />
     <Compile Include="Products\Career.cs" />
     <Compile Include="Products\Inventory.cs" />
-    <Compile Include="Products\Options.cs" />
+    <Compile Include="Manager\Options.cs" />
     <Compile Include="Products\Skills.cs" />
   </ItemGroup>
   <ItemGroup>
