@@ -11,6 +11,7 @@ namespace TravellerCharacterGeneratorTests.Products
     {
         private Career testCareer;
         private readonly string testCareerName = "careerName";
+        private readonly string testRankName = "rankName";
 
         [TestMethod]
         public void New_Career_Should_Start_At_18_Age_And_0_Terms()
@@ -82,6 +83,98 @@ namespace TravellerCharacterGeneratorTests.Products
             Assert.AreEqual(0, testCareer.AgeMonths);
             Assert.AreEqual(0, testCareer.Terms);
             Assert.AreEqual(testCareerName, testCareer.CareerName);
+        }
+
+        [TestMethod]
+        public void Should_Throw_Exceptions_When_Accessing_Rank_From_New_Career_Object()
+        {
+            testCareer = new Career(testCareerName);
+            Assert.IsFalse(testCareer.Commissioned);
+            try
+            {
+                _ = testCareer.Rank;
+                Assert.Fail();
+            }
+            catch (InvalidOperationException)
+            {
+                Assert.AreEqual(18, testCareer.AgeYears);
+                Assert.AreEqual(0, testCareer.AgeMonths);
+                Assert.AreEqual(0, testCareer.Terms);
+                Assert.AreEqual(testCareerName, testCareer.CareerName);
+                Assert.IsFalse(testCareer.Commissioned);
+            }
+            try
+            {
+                _ = testCareer.RankName;
+                Assert.Fail();
+            }
+            catch (InvalidOperationException)
+            {
+                Assert.AreEqual(18, testCareer.AgeYears);
+                Assert.AreEqual(0, testCareer.AgeMonths);
+                Assert.AreEqual(0, testCareer.Terms);
+                Assert.AreEqual(testCareerName, testCareer.CareerName);
+                Assert.IsFalse(testCareer.Commissioned);
+            }
+        }
+
+        [TestMethod]
+        public void Should_Not_Throw_Error_If_Commissioned()
+        {
+            testCareer = new Career(testCareerName);
+            Assert.IsFalse(testCareer.Commissioned);
+            testCareer.Commsion(testRankName);
+            Assert.AreEqual(testRankName, testCareer.RankName);
+            Assert.AreEqual(1, testCareer.Rank);
+            Assert.IsTrue(testCareer.Commissioned);
+
+            try
+            {
+                testCareer.Commsion(testRankName);
+                Assert.Fail();
+            } catch (InvalidOperationException)
+            {
+                Assert.AreEqual(testRankName, testCareer.RankName);
+                Assert.AreEqual(1, testCareer.Rank);
+                Assert.IsTrue(testCareer.Commissioned);
+            }
+
+            testCareer.Promote(testRankName);
+            Assert.AreEqual(testRankName, testCareer.RankName);
+            Assert.AreEqual(2, testCareer.Rank);
+            Assert.IsTrue(testCareer.Commissioned);
+
+            testCareer.Promote(testRankName);
+            Assert.AreEqual(testRankName, testCareer.RankName);
+            Assert.AreEqual(3, testCareer.Rank);
+            Assert.IsTrue(testCareer.Commissioned);
+
+            testCareer.Promote(testRankName);
+            Assert.AreEqual(testRankName, testCareer.RankName);
+            Assert.AreEqual(4, testCareer.Rank);
+            Assert.IsTrue(testCareer.Commissioned);
+
+            testCareer.Promote(testRankName);
+            Assert.AreEqual(testRankName, testCareer.RankName);
+            Assert.AreEqual(5, testCareer.Rank);
+            Assert.IsTrue(testCareer.Commissioned);
+
+            testCareer.Promote(testRankName);
+            Assert.AreEqual(testRankName, testCareer.RankName);
+            Assert.AreEqual(6, testCareer.Rank);
+            Assert.IsTrue(testCareer.Commissioned);
+
+            try
+            {
+                testCareer.Promote(testRankName);
+                Assert.Fail();
+            }
+            catch (InvalidOperationException)
+            {
+                Assert.AreEqual(testRankName, testCareer.RankName);
+                Assert.AreEqual(6, testCareer.Rank);
+                Assert.IsTrue(testCareer.Commissioned);
+            }
         }
     }
 }

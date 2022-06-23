@@ -125,5 +125,21 @@ namespace TravellerCharacterGeneratorTests.Products
             Assert.AreEqual(2, testSkills.NumberOfSkills);
         }
 
+        [TestMethod]
+        public void GetArrayFromDictionary_Returns_Array_Of_Formatted_Strings()
+        {
+            testSkills = new Skills();
+            testSkills.AddZeroSkill(firstSkill);
+            Assert.AreEqual(1, testSkills.SkillsArray.Length);
+            Assert.AreEqual(firstSkill + "-0", testSkills.SkillsArray[0]);
+            testSkills.AddZeroSkill(secondSkill);
+            Assert.AreEqual(2, testSkills.SkillsArray.Length);
+            Assert.AreEqual(firstSkill + "-0", testSkills.SkillsArray[0]);
+            Assert.AreEqual(secondSkill + "-0", testSkills.SkillsArray[1]) ;
+            testSkills.AddSkill(firstSkill);
+            Assert.AreEqual(firstSkill + "-1", testSkills.SkillsArray[0]);
+            Assert.AreEqual(secondSkill + "-0", testSkills.SkillsArray[1]);
+        }
+
     }
 }

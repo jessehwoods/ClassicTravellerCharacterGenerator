@@ -12,7 +12,7 @@ namespace TravellerCharacterGenerator.Products
         private SortedDictionary<string, int> skillsDictionary;
 
         public int NumberOfSkills { get { return skillsDictionary.Count; } }
-        public Tuple<string, int>[] SkillsArray { get { return getArrayFromDictionary(); } }
+        public string[] SkillsArray { get { return GetArrayFromDictionary(); } }
 
         public Skills()
         {
@@ -51,12 +51,10 @@ namespace TravellerCharacterGenerator.Products
             return sb.ToString();
         }
 
-        private string[] getArrayFromDictionary()
+        private string[] GetArrayFromDictionary()
         {
-            var toReturn = skillsDictionary.Select(s => new { String.Format("{0}-{1}", s.Key, s.Value) });
-
-
-            return toReturn;
+            var toReturn = skillsDictionary.Select(s => string.Format("{0}-{1}", s.Key, s.Value) );
+            return toReturn.ToArray();
         }
     }
 }

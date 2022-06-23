@@ -11,6 +11,81 @@ namespace TravellerCharacterGenerator.Products
     ///  This is used to hold the character information at the end of character creation. It is currently intended only to be used as an accessor.
     internal class Character
     {
+        /// <summary>
+        /// Name of the character.
+        /// </summary>
+        public string Name { get { return name; } }
+        /// <summary>
+        /// Age of the character in years.
+        /// </summary>
+        public int AgeYears { get { return career.AgeYears; } }
+        /// <summary>
+        /// Age of the character in months, with years removed.
+        /// </summary>
+        public int AgeMonths { get { return career.AgeMonths; } }
+        /// <summary>
+        /// Terms the character spent in their career.
+        /// </summary>
+        public int Terms { get { return career.Terms; } }
+        /// <summary>
+        /// Name of the character's career.
+        /// </summary>
+        public string CareerName { get { return career.CareerName; } }
+        /// <summary>
+        /// Returns if the character has been commissioned.
+        /// </summary>
+        public bool Commissioned { get { return career.Commissioned; } }
+        /// <summary>
+        /// Rank obtained in the character's career as an integer from 1 to 6, if the character has been commissioned.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if this is called for a Character that has not been commissioned.
+        /// </exception>
+        public int Rank { get { return career.Rank; } }
+        /// <summary>
+        /// Rank obtained in the character's career as a string, if the character has been commissioned.
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if this is called for a Character that has not been commissioned.
+        /// </exception>
+        public string RankName { get { return career.RankName; } }
+        /// <summary>
+        /// Strength attribue, rated 1-15.
+        /// </summary>
+        public int Strength { get { return attributes.Strength; } }
+        /// <summary>
+        /// Dexterity attribue, rated 1-15.
+        /// </summary>
+        public int Dexterity { get { return attributes.Dexterity; } }
+        /// <summary>
+        /// Endurance attribue, rated 1-15.
+        /// </summary>
+        public int Endurance { get { return attributes.Endurance; } }
+        /// <summary>
+        /// Intelligence attribue, rated 1-15.
+        /// </summary>
+        public int Intelligence { get { return attributes.Intelligence; } }
+        /// <summary>
+        /// Education attribue, rated 1-15.
+        /// </summary>
+        public int Education { get { return attributes.Education; } }
+        /// <summary>
+        /// Social Standing attribue, rated 1-15.
+        /// </summary>
+        public int SocialStanding { get { return attributes.SocialStanding; } }
+        /// <summary>
+        /// Cash possessed by character.
+        /// </summary>
+        public int Cash { get { return inventory.Cash; } }
+        /// <summary>
+        /// Character's inventory, other than cash, as an array.
+        /// </summary>
+        public string[] Inventory { get { return inventory.ItemArray; } }
+        /// <summary>
+        /// Character's skills as an array of strings, formatted as "{skill name}-{skill level}"
+        /// </summary>
+        public string[] Skills { get { return skills.SkillsArray; } }
+
         private string name;
         private Attributes attributes;
         private Career career;
@@ -61,71 +136,6 @@ namespace TravellerCharacterGenerator.Products
             this.career = career;
             this.skills = skills;
             this.inventory = inventory;
-        }
-
-        internal string GetName()
-        {
-            return name;
-        }
-
-        internal int GetStrength()
-        {
-            return attributes.Strength;
-        }
-
-        internal int GetDexterity()
-        {
-            return attributes.Dexterity;
-        }
-
-        internal int GetEndurance()
-        {
-            return attributes.Endurance;
-        }
-
-        internal int GetIntelligence()
-        {
-            return attributes.Intelligence;
-        }
-
-        internal int GetEducation()
-        {
-            return attributes.Education;
-        }
-
-        internal int GetSocialStanding()
-        {
-            return attributes.SocialStanding;
-        }
-
-        internal string[] GetInventory()
-        {
-            return inventory.ItemArray;
-        }
-
-        internal string[] GetSkills()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal int GetTerms()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal string GetRank()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal string GetCareer()
-        {
-            throw new NotImplementedException();
-        }
-
-        internal int GetCash()
-        {
-            throw new NotImplementedException();
         }
     }
 }

@@ -15,13 +15,59 @@ namespace ClassicTravellerCharacterGenerator.Products
     /// </remarks>
     internal class Career
     {
+        /// <summary>
+        /// Years of age of the character. 
+        /// </summary>
         public int AgeYears { get; private set; }
+
+        /// <summary>
+        /// Months of age for the character, minus years of age. 
+        /// </summary>
+        /// <remarks>
+        /// So, if the character in 20 years and 2 months old, this returns 2 months.
+        /// </remarks>
         public int AgeMonths { get; private set; }
+
+        /// <summary>
+        /// Terms served in the career. 
+        /// </summary>
         public int Terms { get; private set; }
+
+        /// <summary>
+        /// Name of the character's career. 
+        /// </summary>
         public string CareerName { get; private set; }
+
+        /// <summary>
+        /// Rank level as an integer from 1 to 6, if the character has been commissioned. 
+        /// </summary>
+        /// <remarks>
+        /// There is no 0 rank. A character who has not been commission just doesn't have a rank on my reading of the rules.
+        /// </remarks>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if trying to get a rank and the character has not been commissioned.
+        /// </exception>
+        public int Rank { get { return GetRankLevel(); } }
+        private int rank;
+
+        /// <summary>
+        /// Rank as a string, if the character has been commissioned. 
+        /// </summary>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if trying to get a rank and the character has not been commissioned.
+        /// </exception>
+        public string RankName { get { return GetRankName(); } }
+        private string rankName;
+
+        /// <summary>
+        /// Tracks if the character has been commissioned. 
+        /// </summary>
+        public bool Commissioned { get; private set; }
 
         private readonly int startingAge = 18;
         private readonly int startingTerms = 0;
+        private readonly int startingRank = 0;
+        private readonly int maximumRank = 6;
 
         /// <summary>
         /// Creates a fresh career object at age 18 and 0 terms served. 
@@ -40,6 +86,8 @@ namespace ClassicTravellerCharacterGenerator.Products
             AgeYears = startingAge;
             Terms = startingTerms;
             CareerName = careerName;
+            rank = startingRank;
+            Commissioned = false;
         }
 
         /// <summary>
@@ -79,6 +127,53 @@ namespace ClassicTravellerCharacterGenerator.Products
                 AgeYears += 1;
                 AgeMonths = 0;
             }
+        }
+
+        internal void Commsion(string rankName)
+        {
+            if (Commissioned)
+            {
+                throw new InvalidOperationException("Cannot be commissioned a second time.");
+            }
+            rank = 1;
+            this.rankName = rankName;
+            Commissioned = true;
+        }
+
+        internal void Promote(string rankName)
+        {
+            if (Rank >= maximumRank)
+            {
+                throw new InvalidOperationException("Cannot promote any more from this rank.");
+            }
+            if (!Commissioned)
+            {
+                throw new InvalidOperationException("Cannot promote until commissioned.");
+            }
+            if (rankName == null || rankName.Length <= 0)
+            {
+                throw new ArgumentNullException("Rank name cannot be null.");
+            }
+            this.rankName = rankName;
+            rank++;
+        }
+
+        private string GetRankName()
+        {
+            if (!Commissioned)
+            {
+                throw new InvalidOperationException("Can't have a rank until commissioned.");
+            }
+            return rankName;
+        }
+
+        private int GetRankLevel()
+        {
+            if (!Commissioned)
+            {
+                throw new InvalidOperationException("Can't have a rank level until commissioned.");
+            }
+            return rank;
         }
 
     }
