@@ -9,7 +9,7 @@ namespace TravellerCharacterGeneratorTests.Products
     [TestClass]
     public class AttributesTest
     {
-        private Attributes testAttributes;
+        private Characteristics testAttributes;
         private readonly int testValidAttributes = 7;
         private readonly int testInvalidAttributes = -1;
 
@@ -20,7 +20,7 @@ namespace TravellerCharacterGeneratorTests.Products
             testAttributes = null;
             try
             {
-                testAttributes = new Attributes( 
+                testAttributes = new Characteristics( 
                     testInvalidAttributes, 
                     testValidAttributes, 
                     testValidAttributes, 
@@ -36,7 +36,7 @@ namespace TravellerCharacterGeneratorTests.Products
             // second attribute is invalid
             try
             {
-                testAttributes = new Attributes( 
+                testAttributes = new Characteristics( 
                     testValidAttributes, 
                     testInvalidAttributes, 
                     testValidAttributes, 
@@ -52,7 +52,7 @@ namespace TravellerCharacterGeneratorTests.Products
             // third attribute is invalid
             try
             {
-                testAttributes = new Attributes( 
+                testAttributes = new Characteristics( 
                     testValidAttributes, 
                     testValidAttributes, 
                     testInvalidAttributes, 
@@ -68,7 +68,7 @@ namespace TravellerCharacterGeneratorTests.Products
             // fourth attribute is invalid
             try
             {
-                testAttributes = new Attributes( 
+                testAttributes = new Characteristics( 
                     testValidAttributes, 
                     testValidAttributes, 
                     testValidAttributes, 
@@ -84,7 +84,7 @@ namespace TravellerCharacterGeneratorTests.Products
             // fifth attribute is invalid
             try
             {
-                testAttributes = new Attributes( 
+                testAttributes = new Characteristics( 
                     testValidAttributes, 
                     testValidAttributes, 
                     testValidAttributes, 
@@ -100,7 +100,7 @@ namespace TravellerCharacterGeneratorTests.Products
             // sixth attribute is invalid
             try
             {
-                testAttributes = new Attributes(
+                testAttributes = new Characteristics(
                     testValidAttributes, 
                     testValidAttributes, 
                     testValidAttributes, 
@@ -119,7 +119,7 @@ namespace TravellerCharacterGeneratorTests.Products
         public void No_ArgumentOutOfRangeException_Should_Be_Thrown_By_Nonnegative_Integer_Inputs_For_Attributes()
         {
             testAttributes = null;
-            testAttributes = new Attributes(testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes);
+            testAttributes = new Characteristics(testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes, testValidAttributes);
             Assert.IsNotNull(testAttributes);
             //Check attributes
             Assert.AreEqual(testValidAttributes, testAttributes.Strength);

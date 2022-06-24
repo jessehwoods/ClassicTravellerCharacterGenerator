@@ -12,7 +12,7 @@ namespace TravellerCharacterGeneratorTest.Factories
     {
         private CharacterRoller testCharacterRoller;
         private DiceRoller testDiceRoller;
-        private Attributes testAttributes;
+        private Characteristics testAttributes;
 
         [TestMethod]
         public void ArgumentException_From_Constructor_With_Null_DiceRoller()

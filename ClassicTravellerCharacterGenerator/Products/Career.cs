@@ -39,30 +39,12 @@ namespace ClassicTravellerCharacterGenerator.Products
         public string CareerName { get; private set; }
 
         /// <summary>
-        /// Rank level as an integer from 1 to 6, if the character has been commissioned. 
-        /// </summary>
-        /// <remarks>
-        /// There is no 0 rank. A character who has not been commission just doesn't have a rank on my reading of the rules.
-        /// </remarks>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if trying to get a rank and the character has not been commissioned.
-        /// </exception>
-        public int Rank { get { return GetRankLevel(); } }
-        private int rank;
-
-        /// <summary>
-        /// Rank as a string, if the character has been commissioned. 
-        /// </summary>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if trying to get a rank and the character has not been commissioned.
-        /// </exception>
-        public string RankName { get { return GetRankName(); } }
-        private string rankName;
-
-        /// <summary>
         /// Tracks if the character has been commissioned. 
         /// </summary>
         public bool Commissioned { get; private set; }
+
+        private int rank;
+        private string rankName;
 
         private readonly int startingAge = 18;
         private readonly int startingTerms = 0;
@@ -129,36 +111,45 @@ namespace ClassicTravellerCharacterGenerator.Products
             }
         }
 
-        internal void Commsion(string rankName)
-        {
-            if (Commissioned)
-            {
-                throw new InvalidOperationException("Cannot be commissioned a second time.");
-            }
-            rank = 1;
-            this.rankName = rankName;
-            Commissioned = true;
-        }
 
+        /// <summary>
+        /// Increases the rank of a commissioned character, gives a character who has not been commissioned a commmision. 
+        /// </summary>
+        /// <remarks>
+        /// In the rules, being commissioned and being promoted are separate, distinct steps. The checks and results are identical, though, so 
+        /// they are being done with a single method.
+        /// </remarks>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if maximum rank has been reaached already.
+        /// </exception>
+        /// <exception cref="ArgumentNullException"> 
+        /// Thrown is the rankName is null or 0 length.
+        /// </exception>
         internal void Promote(string rankName)
         {
-            if (Rank >= maximumRank)
+            if (rank >= maximumRank)
             {
                 throw new InvalidOperationException("Cannot promote any more from this rank.");
-            }
-            if (!Commissioned)
-            {
-                throw new InvalidOperationException("Cannot promote until commissioned.");
             }
             if (rankName == null || rankName.Length <= 0)
             {
                 throw new ArgumentNullException("Rank name cannot be null.");
             }
+            Commissioned = true;
             this.rankName = rankName;
             rank++;
         }
 
-        private string GetRankName()
+        /// <summary>
+        /// Returns rank as a string, if the character has been commissioned. 
+        /// </summary>
+        /// <remarks>
+        /// The character only has a rank name, 
+        /// </remarks>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if trying to get a rank and the character has not been commissioned.
+        /// </exception>
+        internal string GetRankName()
         {
             if (!Commissioned)
             {
@@ -167,7 +158,16 @@ namespace ClassicTravellerCharacterGenerator.Products
             return rankName;
         }
 
-        private int GetRankLevel()
+        /// <summary>
+        /// Returns rank level as an integer from 1 to 6, if the character has been commissioned. 
+        /// </summary>
+        /// <remarks>
+        /// There is no 0 rank. A character who has not been commissioned, tracked by the Commissioned property, just doesn't have a rank on my reading of the rules.
+        /// </remarks>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if trying to get a rank and the character has not been commissioned.
+        /// </exception>
+        internal int GetRankLevel()
         {
             if (!Commissioned)
             {

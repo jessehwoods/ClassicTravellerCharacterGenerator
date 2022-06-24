@@ -36,20 +36,6 @@ namespace TravellerCharacterGenerator.Products
         /// </summary>
         public bool Commissioned { get { return career.Commissioned; } }
         /// <summary>
-        /// Rank obtained in the character's career as an integer from 1 to 6, if the character has been commissioned.
-        /// </summary>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if this is called for a Character that has not been commissioned.
-        /// </exception>
-        public int Rank { get { return career.Rank; } }
-        /// <summary>
-        /// Rank obtained in the character's career as a string, if the character has been commissioned.
-        /// </summary>
-        /// <exception cref="InvalidOperationException">
-        /// Thrown if this is called for a Character that has not been commissioned.
-        /// </exception>
-        public string RankName { get { return career.RankName; } }
-        /// <summary>
         /// Strength attribue, rated 1-15.
         /// </summary>
         public int Strength { get { return attributes.Strength; } }
@@ -87,7 +73,7 @@ namespace TravellerCharacterGenerator.Products
         public string[] Skills { get { return skills.SkillsArray; } }
 
         private string name;
-        private Attributes attributes;
+        private Characteristics attributes;
         private Career career;
         private Skills skills;
         private Inventory inventory;
@@ -106,7 +92,7 @@ namespace TravellerCharacterGenerator.Products
         /// <exception cref="skills"> ArgumentNullException.</exception>
         /// <exception cref="inventory"> ArgumentNullException.</exception>
         public Character(string name, 
-            Attributes attributes,
+            Characteristics attributes,
             Career career,
             Skills skills, 
             Inventory inventory)
@@ -137,5 +123,34 @@ namespace TravellerCharacterGenerator.Products
             this.skills = skills;
             this.inventory = inventory;
         }
+
+        /// <summary>
+        /// Returns rank as a string, if the character has been commissioned. 
+        /// </summary>
+        /// <remarks>
+        /// The character only has a rank name, 
+        /// </remarks>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if trying to get a rank and the character has not been commissioned.
+        /// </exception>
+        internal string GetRankName()
+        {
+            return career.GetRankName();
+        }
+
+        /// <summary>
+        /// Returns rank level as an integer from 1 to 6, if the character has been commissioned. 
+        /// </summary>
+        /// <remarks>
+        /// There is no 0 rank. A character who has not been commissioned, tracked by the Commissioned property, just doesn't have a rank on my reading of the rules.
+        /// </remarks>
+        /// <exception cref="InvalidOperationException">
+        /// Thrown if trying to get a rank and the character has not been commissioned.
+        /// </exception>
+        internal int GetRankLevel()
+        {
+            return career.GetRankLevel();
+        }
+
     }
 }

@@ -15,7 +15,7 @@ namespace TravellerCharacterGenerator.Factories
             this.diceRoller = diceRoller;
         }
 
-        internal Attributes RollCharacter()
+        internal Characteristics RollCharacter()
         {
             throw new NotImplementedException();
         }

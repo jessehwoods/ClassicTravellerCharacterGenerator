@@ -92,7 +92,7 @@ namespace TravellerCharacterGeneratorTests.Products
             Assert.IsFalse(testCareer.Commissioned);
             try
             {
-                _ = testCareer.Rank;
+                _ = testCareer.GetRankLevel();
                 Assert.Fail();
             }
             catch (InvalidOperationException)
@@ -105,7 +105,7 @@ namespace TravellerCharacterGeneratorTests.Products
             }
             try
             {
-                _ = testCareer.RankName;
+                _ = testCareer.GetRankName();
                 Assert.Fail();
             }
             catch (InvalidOperationException)
@@ -123,45 +123,34 @@ namespace TravellerCharacterGeneratorTests.Products
         {
             testCareer = new Career(testCareerName);
             Assert.IsFalse(testCareer.Commissioned);
-            testCareer.Commsion(testRankName);
-            Assert.AreEqual(testRankName, testCareer.RankName);
-            Assert.AreEqual(1, testCareer.Rank);
-            Assert.IsTrue(testCareer.Commissioned);
-
-            try
-            {
-                testCareer.Commsion(testRankName);
-                Assert.Fail();
-            } catch (InvalidOperationException)
-            {
-                Assert.AreEqual(testRankName, testCareer.RankName);
-                Assert.AreEqual(1, testCareer.Rank);
-                Assert.IsTrue(testCareer.Commissioned);
-            }
-
             testCareer.Promote(testRankName);
-            Assert.AreEqual(testRankName, testCareer.RankName);
-            Assert.AreEqual(2, testCareer.Rank);
+            Assert.AreEqual(testRankName, testCareer.GetRankName());
+            Assert.AreEqual(1, testCareer.GetRankLevel());
             Assert.IsTrue(testCareer.Commissioned);
 
             testCareer.Promote(testRankName);
-            Assert.AreEqual(testRankName, testCareer.RankName);
-            Assert.AreEqual(3, testCareer.Rank);
+            Assert.AreEqual(testRankName, testCareer.GetRankName());
+            Assert.AreEqual(2, testCareer.GetRankLevel());
             Assert.IsTrue(testCareer.Commissioned);
 
             testCareer.Promote(testRankName);
-            Assert.AreEqual(testRankName, testCareer.RankName);
-            Assert.AreEqual(4, testCareer.Rank);
+            Assert.AreEqual(testRankName, testCareer.GetRankName());
+            Assert.AreEqual(3, testCareer.GetRankLevel());
             Assert.IsTrue(testCareer.Commissioned);
 
             testCareer.Promote(testRankName);
-            Assert.AreEqual(testRankName, testCareer.RankName);
-            Assert.AreEqual(5, testCareer.Rank);
+            Assert.AreEqual(testRankName, testCareer.GetRankName());
+            Assert.AreEqual(4, testCareer.GetRankLevel());
             Assert.IsTrue(testCareer.Commissioned);
 
             testCareer.Promote(testRankName);
-            Assert.AreEqual(testRankName, testCareer.RankName);
-            Assert.AreEqual(6, testCareer.Rank);
+            Assert.AreEqual(testRankName, testCareer.GetRankName());
+            Assert.AreEqual(5, testCareer.GetRankLevel());
+            Assert.IsTrue(testCareer.Commissioned);
+
+            testCareer.Promote(testRankName);
+            Assert.AreEqual(testRankName, testCareer.GetRankName());
+            Assert.AreEqual(6, testCareer.GetRankLevel());
             Assert.IsTrue(testCareer.Commissioned);
 
             try
@@ -171,8 +160,8 @@ namespace TravellerCharacterGeneratorTests.Products
             }
             catch (InvalidOperationException)
             {
-                Assert.AreEqual(testRankName, testCareer.RankName);
-                Assert.AreEqual(6, testCareer.Rank);
+                Assert.AreEqual(testRankName, testCareer.GetRankName());
+                Assert.AreEqual(6, testCareer.GetRankLevel());
                 Assert.IsTrue(testCareer.Commissioned);
             }
         }
