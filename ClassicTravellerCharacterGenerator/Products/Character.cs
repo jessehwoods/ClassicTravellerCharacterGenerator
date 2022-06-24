@@ -38,27 +38,27 @@ namespace TravellerCharacterGenerator.Products
         /// <summary>
         /// Strength attribue, rated 1-15.
         /// </summary>
-        public int Strength { get { return attributes.Strength; } }
+        public int Strength { get { return characteristics.Strength; } }
         /// <summary>
         /// Dexterity attribue, rated 1-15.
         /// </summary>
-        public int Dexterity { get { return attributes.Dexterity; } }
+        public int Dexterity { get { return characteristics.Dexterity; } }
         /// <summary>
         /// Endurance attribue, rated 1-15.
         /// </summary>
-        public int Endurance { get { return attributes.Endurance; } }
+        public int Endurance { get { return characteristics.Endurance; } }
         /// <summary>
         /// Intelligence attribue, rated 1-15.
         /// </summary>
-        public int Intelligence { get { return attributes.Intelligence; } }
+        public int Intelligence { get { return characteristics.Intelligence; } }
         /// <summary>
         /// Education attribue, rated 1-15.
         /// </summary>
-        public int Education { get { return attributes.Education; } }
+        public int Education { get { return characteristics.Education; } }
         /// <summary>
         /// Social Standing attribue, rated 1-15.
         /// </summary>
-        public int SocialStanding { get { return attributes.SocialStanding; } }
+        public int SocialStanding { get { return characteristics.SocialStanding; } }
         /// <summary>
         /// Cash possessed by character.
         /// </summary>
@@ -73,7 +73,7 @@ namespace TravellerCharacterGenerator.Products
         public string[] Skills { get { return skills.SkillsArray; } }
 
         private string name;
-        private Characteristics attributes;
+        private Characteristics characteristics;
         private Career career;
         private Skills skills;
         private Inventory inventory;
@@ -86,13 +86,9 @@ namespace TravellerCharacterGenerator.Products
         /// <param name="career">The name of the character. First and last are not distinguished.</param>
         /// <param name="skills">The name of the character. First and last are not distinguished.</param>
         /// <param name="inventory">The name of the character. First and last are not distinguished.</param>
-        /// <exception cref="name"> ArgumentNullException.</exception>
-        /// <exception cref="attributes"> ArgumentNullException.</exception>
-        /// <exception cref="career"> ArgumentNullException.</exception>
-        /// <exception cref="skills"> ArgumentNullException.</exception>
-        /// <exception cref="inventory"> ArgumentNullException.</exception>
+        /// <exception cref="ArgumentNullException"> If any argument is null.</exception>
         public Character(string name, 
-            Characteristics attributes,
+            Characteristics characteristics,
             Career career,
             Skills skills, 
             Inventory inventory)
@@ -101,7 +97,7 @@ namespace TravellerCharacterGenerator.Products
             {
                 throw new ArgumentNullException("name");
             }
-            if (attributes == null)
+            if (characteristics == null)
             {
                 throw new ArgumentNullException("attributes");
             }
@@ -118,7 +114,7 @@ namespace TravellerCharacterGenerator.Products
                 throw new ArgumentNullException("inventory");
             }
             this.name = name;
-            this.attributes = attributes;
+            this.characteristics = characteristics;
             this.career = career;
             this.skills = skills;
             this.inventory = inventory;
