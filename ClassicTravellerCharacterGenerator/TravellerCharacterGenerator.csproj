@@ -49,8 +49,13 @@
     <Compile Include="Products\Character.cs" />
     <Compile Include="Products\Characteristics.cs" />
     <Compile Include="Products\Career.cs" />
+    <Compile Include="Products\ICareer.cs" />
+    <Compile Include="Products\ICharacter.cs" />
+    <Compile Include="Products\ICharacteristics.cs" />
+    <Compile Include="Products\IInventory.cs" />
     <Compile Include="Products\Inventory.cs" />
     <Compile Include="Manager\Options.cs" />
+    <Compile Include="Products\ISkills.cs" />
     <Compile Include="Products\Skills.cs" />
   </ItemGroup>
   <ItemGroup>

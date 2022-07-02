@@ -8,7 +8,7 @@ namespace ClassicTravellerCharacterGenerator.Products
     /// <remarks>
     /// Age and terms will be used in doing checks for attribute loss and death due to aging. They are also typically displayed when describing a charcter.
     /// </remarks>
-    internal class Career
+    internal class Career : ICareer
     {
         /// <summary>
         /// Years of age of the character. 
@@ -144,7 +144,7 @@ namespace ClassicTravellerCharacterGenerator.Products
         /// <exception cref="InvalidOperationException">
         /// Thrown if trying to get a rank and the character has not been commissioned.
         /// </exception>
-        internal string GetRankName()
+        public string GetRankName()
         {
             if (!Commissioned)
             {
@@ -162,7 +162,7 @@ namespace ClassicTravellerCharacterGenerator.Products
         /// <exception cref="InvalidOperationException">
         /// Thrown if trying to get a rank and the character has not been commissioned.
         /// </exception>
-        internal int GetRankLevel()
+        public int GetRankLevel()
         {
             if (!Commissioned)
             {

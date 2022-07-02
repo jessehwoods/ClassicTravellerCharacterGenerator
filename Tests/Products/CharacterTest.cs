@@ -13,10 +13,10 @@ namespace TravellerCharacterGeneratorTests.Products
 
         private Character testCharacter;
         private readonly string testCharacterName = "testCharacterName";
-        private Mock<Career> testCareer;
-        private Mock<Characteristics> testCharacteristics;
-        private Mock<Skills> testSkills;
-        private Mock<Inventory> testInventory;
+        private Mock<ICareer> testCareer;
+        private Mock<ICharacteristics> testCharacteristics;
+        private Mock<ISkills> testSkills;
+        private Mock<IInventory> testInventory;
 
         private readonly int ageYears = 18;
         private readonly int ageMonths = 6;
@@ -34,7 +34,7 @@ namespace TravellerCharacterGeneratorTests.Products
         public void Construct_Dummy_Objects()
         {
             // Set up characteristics
-            testCharacteristics = new Mock<Characteristics>();
+            testCharacteristics = new Mock<ICharacteristics>();
             testCharacteristics.SetupGet(x => x.Strength).Returns(charactertistic);
             testCharacteristics.SetupGet(x => x.Dexterity).Returns(charactertistic);
             testCharacteristics.SetupGet(x => x.Endurance).Returns(charactertistic);
@@ -42,19 +42,19 @@ namespace TravellerCharacterGeneratorTests.Products
             testCharacteristics.SetupGet(x => x.Education).Returns(charactertistic);
             testCharacteristics.SetupGet(x => x.SocialStanding).Returns(charactertistic);
             // Set up career
-            testCareer = new Mock<Career>();
+            testCareer = new Mock<ICareer>();
             testCareer.SetupGet(x => x.AgeYears).Returns(ageYears);
             testCareer.SetupGet(x => x.AgeMonths).Returns(ageMonths);
             testCareer.SetupGet(x => x.CareerName).Returns(testCareerName);
             testCareer.SetupGet(x => x.Terms).Returns(terms);
-            testCareer.SetupGet(x => x.GetRankLevel()).Returns(rankLevel);
-            testCareer.SetupGet(x => x.GetRankName()).Returns(rankName);
+            testCareer.Setup(x => x.GetRankLevel()).Returns(rankLevel);
+            testCareer.Setup(x => x.GetRankName()).Returns(rankName);
             testCareer.SetupGet(x => x.Commissioned).Returns(testCommissioned);
             // Set up Skills
-            testSkills = new Mock<Skills>();
+            testSkills = new Mock<ISkills>();
             testSkills.SetupGet(x => x.SkillsArray).Returns(testSkillList);
             //Set up Inventory
-            testInventory = new Mock<Inventory>();
+            testInventory = new Mock<IInventory>();
             testInventory.SetupGet(x => x.ItemArray).Returns(testInventoryList);
         }
 

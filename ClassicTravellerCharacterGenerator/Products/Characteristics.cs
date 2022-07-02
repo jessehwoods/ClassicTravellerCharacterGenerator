@@ -14,7 +14,7 @@ namespace ClassicTravellerCharacterGenerator.Products
     /// hypothetically possible, but the system for representing them, the pseudo-hexadecimal notation described on p. 8 of the first Traveller book, has
     /// a maximum value of 15.
     /// </remarks>
-    internal class Characteristics
+    internal class Characteristics : ICharacteristics
     {
         public int Strength { get; private set; }
         public int Dexterity { get; private set; }
@@ -26,7 +26,7 @@ namespace ClassicTravellerCharacterGenerator.Products
 
         public Characteristics(int strength, int dexterity, int endurance, int intelligence, int education, int socialStanding)
         {
-            if(strength < 0 || dexterity < 0 || endurance < 0 || intelligence < 0 || education < 0 || socialStanding < 0)
+            if (strength < 0 || dexterity < 0 || endurance < 0 || intelligence < 0 || education < 0 || socialStanding < 0)
             {
                 throw new ArgumentOutOfRangeException("No attribute can be less than 0.");
             }

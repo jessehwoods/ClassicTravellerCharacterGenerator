@@ -9,7 +9,7 @@ namespace TravellerCharacterGenerator.Products
     /// </summary>
     /// <remarks>
     ///  This is used to hold the character information at the end of character creation. It is currently intended only to be used as an accessor.
-    internal class Character
+    internal class Character : ICharacter
     {
         /// <summary>
         /// Name of the character.
@@ -73,10 +73,10 @@ namespace TravellerCharacterGenerator.Products
         public string[] Skills { get { return skills.SkillsArray; } }
 
         private string name;
-        private Characteristics characteristics;
-        private Career career;
-        private Skills skills;
-        private Inventory inventory;
+        private ICharacteristics characteristics;
+        private ICareer career;
+        private ISkills skills;
+        private IInventory inventory;
 
         /// <summary>
         /// Constructs a character with the input values. 
@@ -87,11 +87,11 @@ namespace TravellerCharacterGenerator.Products
         /// <param name="skills">The name of the character. First and last are not distinguished.</param>
         /// <param name="inventory">The name of the character. First and last are not distinguished.</param>
         /// <exception cref="ArgumentNullException"> If any argument is null.</exception>
-        public Character(string name, 
-            Characteristics characteristics,
-            Career career,
-            Skills skills, 
-            Inventory inventory)
+        public Character(string name,
+            ICharacteristics characteristics,
+            ICareer career,
+            ISkills skills,
+            IInventory inventory)
         {
             if (name == null || name.Length == 0)
             {

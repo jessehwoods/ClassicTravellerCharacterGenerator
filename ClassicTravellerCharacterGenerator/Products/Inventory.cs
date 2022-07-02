@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace TravellerCharacterGenerator.Products
 {
-    internal class Inventory
+    internal class Inventory : IInventory
     {
         private List<String> itemList;
 

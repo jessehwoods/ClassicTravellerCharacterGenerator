@@ -7,7 +7,7 @@ using System.Text;
 
 namespace TravellerCharacterGenerator.Products
 {
-    internal class Skills
+    internal class Skills : ISkills
     {
         private SortedDictionary<string, int> skillsDictionary;
 
@@ -53,7 +53,7 @@ namespace TravellerCharacterGenerator.Products
 
         private string[] GetArrayFromDictionary()
         {
-            var toReturn = skillsDictionary.Select(s => string.Format("{0}-{1}", s.Key, s.Value) );
+            var toReturn = skillsDictionary.Select(s => string.Format("{0}-{1}", s.Key, s.Value));
             return toReturn.ToArray();
         }
     }
