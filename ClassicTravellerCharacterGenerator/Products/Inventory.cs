@@ -20,7 +20,7 @@ namespace TravellerCharacterGenerator.Products
 
         }
 
-        internal void AddCash(int cashAmount)
+        public void AddCash(int cashAmount)
         {
             if (cashAmount < 0)
             {
@@ -29,7 +29,7 @@ namespace TravellerCharacterGenerator.Products
             Cash += cashAmount;
         }
 
-        internal void AddItem(string itemToAdd)
+        public void AddItem(string itemToAdd)
         {
             if (itemToAdd == null || itemToAdd.Length == 0)
             {

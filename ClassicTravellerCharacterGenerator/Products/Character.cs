@@ -129,7 +129,7 @@ namespace TravellerCharacterGenerator.Products
         /// <exception cref="InvalidOperationException">
         /// Thrown if trying to get a rank and the character has not been commissioned.
         /// </exception>
-        internal string GetRankName()
+        public string GetRankName()
         {
             return career.GetRankName();
         }
@@ -143,7 +143,7 @@ namespace TravellerCharacterGenerator.Products
         /// <exception cref="InvalidOperationException">
         /// Thrown if trying to get a rank and the character has not been commissioned.
         /// </exception>
-        internal int GetRankLevel()
+        public int GetRankLevel()
         {
             return career.GetRankLevel();
         }

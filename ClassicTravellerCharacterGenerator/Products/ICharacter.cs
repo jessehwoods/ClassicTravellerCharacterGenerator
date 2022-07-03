@@ -17,5 +17,8 @@
         int SocialStanding { get; }
         int Strength { get; }
         int Terms { get; }
+
+        string GetRankName();
+        int GetRankLevel();
     }
 }

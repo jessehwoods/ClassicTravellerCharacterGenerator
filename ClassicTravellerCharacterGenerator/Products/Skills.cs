@@ -7,6 +7,7 @@ using System.Text;
 
 namespace TravellerCharacterGenerator.Products
 {
+
     internal class Skills : ISkills
     {
         private SortedDictionary<string, int> skillsDictionary;
@@ -28,7 +29,7 @@ namespace TravellerCharacterGenerator.Products
             skillsDictionary.Add(skill, 0);
         }
 
-        internal void AddSkill(string skill)
+        public void AddSkill(string skill)
         {
             if (skillsDictionary.TryGetValue(skill, out int skillvalue))
             {

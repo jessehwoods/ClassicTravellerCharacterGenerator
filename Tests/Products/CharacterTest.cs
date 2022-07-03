@@ -11,7 +11,7 @@ namespace TravellerCharacterGeneratorTests.Products
     public class CharacterTest
     {
 
-        private Character testCharacter;
+        private ICharacter testCharacter;
         private readonly string testCharacterName = "testCharacterName";
         private Mock<ICareer> testCareer;
         private Mock<ICharacteristics> testCharacteristics;

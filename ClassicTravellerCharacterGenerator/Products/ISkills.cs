@@ -4,5 +4,7 @@
     {
         int NumberOfSkills { get; }
         string[] SkillsArray { get; }
+
+        void AddSkill( string skillName );
     }
 }
